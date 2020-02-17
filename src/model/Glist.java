@@ -422,12 +422,18 @@ public class Glist<T> implements IGlist<T> {
             this.swapp(this.getElement(pos1), this.getElement(pos2));
         }
     }
-
+/**
+ * Inicia el ordenamiento por quicksort.
+ */
     public void qcksort() {
         this.shuffle(); //perdemos tiempo en todos los casos, pero evitamos los peores casos de orden inverso, para los que quickSort tiene O(N^2)
         qcksort(0, this._size - 1);
     }
-
+/**
+ * Realiza el ordenamiento por quicksort.
+ * @param low Posicion del elemento donde empezamos.
+ * @param high Posicion del elemento donde acabamos.
+ */
     private void qcksort(int low, int high) {
         if (low < high) {
             int partitionIndex = partition(low, high);
@@ -436,7 +442,12 @@ public class Glist<T> implements IGlist<T> {
             qcksort(partitionIndex + 1, high);
         }
     }
-
+/**
+ * Submetodo que realiza las comparaciones y maneja los intercambios de la ordenacion quicksort.
+ * @param begin Posicion donde comenzamos.
+ * @param end Posicion donde acabamos.
+ * @return Posicion del nuevo pivote.
+ */
     private int partition(int begin, int end) {
         Node<T> pivot = this.getElement(end);
         int i = (begin - 1);
@@ -455,7 +466,11 @@ public class Glist<T> implements IGlist<T> {
 
         return i + 1;
     }
-
+/**
+ * Intercambia dos nodos si estos se pueden intercambiar.
+ * @param n1 Primer nodo.
+ * @param n2 Segundo nodo.
+ */
     private void swapp(Node<T> n1, Node<T> n2) {
 
         if (n1 != null && n2 != null && n1 != n2) {
@@ -556,7 +571,10 @@ public class Glist<T> implements IGlist<T> {
         }
 
     }
-
+/**
+ * Convierte la lista en un array
+ * @return El array creado.
+ */
     public T[] ToArray() {
         
         if (this._size > 0) {
@@ -572,7 +590,9 @@ public class Glist<T> implements IGlist<T> {
         }
         return null;
     }
-
+/**
+ * Borra la lista completa.
+ */
     public void clear() {
 
         Node<T> current = this._root;

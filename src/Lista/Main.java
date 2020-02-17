@@ -48,7 +48,7 @@ public class Main {
         System.out.println("---> " +lista.getElement(24)+ "     " + lista.size());
         //lista.sort();
         //lista.reverse();
-        //lista.shuffle();
+        lista.shuffle();
         //lista.clear();
         lista.qcksort();
         
